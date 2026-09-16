@@ -148,3 +148,25 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes paaecm-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    r: 2.4;
+  }
+  50% {
+    opacity: 0.7;
+    r: 4;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
