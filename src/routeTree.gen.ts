@@ -10,80 +10,156 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ObjectivesRouteImport } from './routes/objectives'
-import { Route as StrategicActionsRouteImport } from './routes/strategic-actions'
-import { Route as VisionMissionRouteImport } from './routes/vision-mission'
+import { Route as LangRouteRouteImport } from './routes/$lang/route'
+import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangAboutRouteImport } from './routes/$lang/about'
+import { Route as LangContactRouteImport } from './routes/$lang/contact'
+import { Route as LangLeadershipRouteImport } from './routes/$lang/leadership'
+import { Route as LangNewsRouteImport } from './routes/$lang/news'
+import { Route as LangObjectivesRouteImport } from './routes/$lang/objectives'
+import { Route as LangPartnershipsRouteImport } from './routes/$lang/partnerships'
+import { Route as LangStrategicActionsRouteImport } from './routes/$lang/strategic-actions'
+import { Route as LangVisionMissionRouteImport } from './routes/$lang/vision-mission'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
+const LangRouteRoute = LangRouteRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangAboutRoute = LangAboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LangRouteRoute,
 } as any)
-const ObjectivesRoute = ObjectivesRouteImport.update({
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangLeadershipRoute = LangLeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangNewsRoute = LangNewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangObjectivesRoute = LangObjectivesRouteImport.update({
   id: '/objectives',
   path: '/objectives',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LangRouteRoute,
 } as any)
-const StrategicActionsRoute = StrategicActionsRouteImport.update({
+const LangPartnershipsRoute = LangPartnershipsRouteImport.update({
+  id: '/partnerships',
+  path: '/partnerships',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangStrategicActionsRoute = LangStrategicActionsRouteImport.update({
   id: '/strategic-actions',
   path: '/strategic-actions',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LangRouteRoute,
 } as any)
-const VisionMissionRoute = VisionMissionRouteImport.update({
+const LangVisionMissionRoute = LangVisionMissionRouteImport.update({
   id: '/vision-mission',
   path: '/vision-mission',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LangRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/objectives': typeof ObjectivesRoute
-  '/strategic-actions': typeof StrategicActionsRoute
-  '/vision-mission': typeof VisionMissionRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/leadership': typeof LangLeadershipRoute
+  '/$lang/news': typeof LangNewsRoute
+  '/$lang/objectives': typeof LangObjectivesRoute
+  '/$lang/partnerships': typeof LangPartnershipsRoute
+  '/$lang/strategic-actions': typeof LangStrategicActionsRoute
+  '/$lang/vision-mission': typeof LangVisionMissionRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/objectives': typeof ObjectivesRoute
-  '/strategic-actions': typeof StrategicActionsRoute
-  '/vision-mission': typeof VisionMissionRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/leadership': typeof LangLeadershipRoute
+  '/$lang/news': typeof LangNewsRoute
+  '/$lang/objectives': typeof LangObjectivesRoute
+  '/$lang/partnerships': typeof LangPartnershipsRoute
+  '/$lang/strategic-actions': typeof LangStrategicActionsRoute
+  '/$lang/vision-mission': typeof LangVisionMissionRoute
+  '/$lang': typeof LangIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/objectives': typeof ObjectivesRoute
-  '/strategic-actions': typeof StrategicActionsRoute
-  '/vision-mission': typeof VisionMissionRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/leadership': typeof LangLeadershipRoute
+  '/$lang/news': typeof LangNewsRoute
+  '/$lang/objectives': typeof LangObjectivesRoute
+  '/$lang/partnerships': typeof LangPartnershipsRoute
+  '/$lang/strategic-actions': typeof LangStrategicActionsRoute
+  '/$lang/vision-mission': typeof LangVisionMissionRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/objectives' | '/strategic-actions' | '/vision-mission'
+    | '/'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/leadership'
+    | '/$lang/news'
+    | '/$lang/objectives'
+    | '/$lang/partnerships'
+    | '/$lang/strategic-actions'
+    | '/$lang/vision-mission'
+    | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/objectives' | '/strategic-actions' | '/vision-mission'
+  to:
+    | '/'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/leadership'
+    | '/$lang/news'
+    | '/$lang/objectives'
+    | '/$lang/partnerships'
+    | '/$lang/strategic-actions'
+    | '/$lang/vision-mission'
+    | '/$lang'
   id:
     | '__root__'
     | '/'
-    | '/about'
-    | '/objectives'
-    | '/strategic-actions'
-    | '/vision-mission'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/leadership'
+    | '/$lang/news'
+    | '/$lang/objectives'
+    | '/$lang/partnerships'
+    | '/$lang/strategic-actions'
+    | '/$lang/vision-mission'
+    | '/$lang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ObjectivesRoute: typeof ObjectivesRoute
-  StrategicActionsRoute: typeof StrategicActionsRoute
-  VisionMissionRoute: typeof VisionMissionRoute
+  LangRouteRoute: typeof LangRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -95,43 +171,110 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
       path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRouteRoute
     }
-    '/objectives': {
-      id: '/objectives'
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/leadership': {
+      id: '/$lang/leadership'
+      path: '/leadership'
+      fullPath: '/$lang/leadership'
+      preLoaderRoute: typeof LangLeadershipRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/news': {
+      id: '/$lang/news'
+      path: '/news'
+      fullPath: '/$lang/news'
+      preLoaderRoute: typeof LangNewsRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/objectives': {
+      id: '/$lang/objectives'
       path: '/objectives'
-      fullPath: '/objectives'
-      preLoaderRoute: typeof ObjectivesRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/$lang/objectives'
+      preLoaderRoute: typeof LangObjectivesRouteImport
+      parentRoute: typeof LangRouteRoute
     }
-    '/strategic-actions': {
-      id: '/strategic-actions'
+    '/$lang/partnerships': {
+      id: '/$lang/partnerships'
+      path: '/partnerships'
+      fullPath: '/$lang/partnerships'
+      preLoaderRoute: typeof LangPartnershipsRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/strategic-actions': {
+      id: '/$lang/strategic-actions'
       path: '/strategic-actions'
-      fullPath: '/strategic-actions'
-      preLoaderRoute: typeof StrategicActionsRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/$lang/strategic-actions'
+      preLoaderRoute: typeof LangStrategicActionsRouteImport
+      parentRoute: typeof LangRouteRoute
     }
-    '/vision-mission': {
-      id: '/vision-mission'
+    '/$lang/vision-mission': {
+      id: '/$lang/vision-mission'
       path: '/vision-mission'
-      fullPath: '/vision-mission'
-      preLoaderRoute: typeof VisionMissionRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/$lang/vision-mission'
+      preLoaderRoute: typeof LangVisionMissionRouteImport
+      parentRoute: typeof LangRouteRoute
     }
   }
 }
 
+interface LangRouteRouteChildren {
+  LangAboutRoute: typeof LangAboutRoute
+  LangContactRoute: typeof LangContactRoute
+  LangLeadershipRoute: typeof LangLeadershipRoute
+  LangNewsRoute: typeof LangNewsRoute
+  LangObjectivesRoute: typeof LangObjectivesRoute
+  LangPartnershipsRoute: typeof LangPartnershipsRoute
+  LangStrategicActionsRoute: typeof LangStrategicActionsRoute
+  LangVisionMissionRoute: typeof LangVisionMissionRoute
+  LangIndexRoute: typeof LangIndexRoute
+}
+
+const LangRouteRouteChildren: LangRouteRouteChildren = {
+  LangAboutRoute: LangAboutRoute,
+  LangContactRoute: LangContactRoute,
+  LangLeadershipRoute: LangLeadershipRoute,
+  LangNewsRoute: LangNewsRoute,
+  LangObjectivesRoute: LangObjectivesRoute,
+  LangPartnershipsRoute: LangPartnershipsRoute,
+  LangStrategicActionsRoute: LangStrategicActionsRoute,
+  LangVisionMissionRoute: LangVisionMissionRoute,
+  LangIndexRoute: LangIndexRoute,
+}
+
+const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
+  LangRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ObjectivesRoute: ObjectivesRoute,
-  StrategicActionsRoute: StrategicActionsRoute,
-  VisionMissionRoute: VisionMissionRoute,
+  LangRouteRoute: LangRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
