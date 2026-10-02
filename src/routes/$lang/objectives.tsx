@@ -6,7 +6,7 @@ export const Route = createFileRoute("/$lang/objectives")({
 });
 
 function Objectives() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -14,7 +14,7 @@ function Objectives() {
         <div className="container max-w-screen-xl px-4 mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              {t.lang === "pt" ? "Objectivos Estratégicos" : "Strategic Objectives"}
+              {lang === "pt" ? "Objectivos Estratégicos" : "Strategic Objectives"}
             </h1>
           </div>
 

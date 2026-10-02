@@ -15,6 +15,7 @@ export const i18n = {
       resources: "Resources",
       news: "News",
       contact: "Contact",
+      advocacy: "Advocacy & Campaigns",
     },
     // Global
     partnerWithUs: "Partner With Us",
@@ -171,6 +172,7 @@ export const i18n = {
       resources: "Recursos",
       news: "Notícias",
       contact: "Contacto",
+      advocacy: "Advocacia e Campanhas",
     },
     // Global
     partnerWithUs: "Seja Nosso Parceiro",

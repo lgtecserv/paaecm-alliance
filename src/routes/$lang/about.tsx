@@ -7,7 +7,7 @@ export const Route = createFileRoute("/$lang/about")({
 });
 
 function About() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -37,7 +37,7 @@ function About() {
                 </p>
                 <p>{t.about.originText}</p>
                 <p>
-                  {t.lang === "pt"
+                  {lang === "pt"
                     ? "O perfil institucional relaciona a origem da iniciativa com:"
                     : "The institutional profile relates the origin of the initiative with:"}
                 </p>
@@ -108,7 +108,7 @@ function About() {
                 key={country}
                 className="px-6 py-3 rounded-full bg-background border border-border text-foreground font-medium shadow-sm hover:border-primary transition-colors cursor-default"
               >
-                {t.lang === "pt" ? getPortugueseCountry(country) : country}
+                {lang === "pt" ? getPortugueseCountry(country) : country}
               </span>
             ))}
           </div>

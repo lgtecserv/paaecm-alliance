@@ -15,7 +15,8 @@ export const Route = createFileRoute("/")({
     }
 
     throw redirect({
-      to: `/${storedLang}`,
+      to: "/$lang",
+      params: { lang: storedLang as Language },
       replace: true,
     });
   },

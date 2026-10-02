@@ -39,14 +39,16 @@ function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              to={`/${lang}/about`}
+              to="/$lang/about"
+              params={{ lang: lang as "en" | "pt" }}
               className="inline-flex h-14 items-center justify-center rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105 hover:bg-primary/90"
             >
               {t.learnAbout}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link
-              to={`/${lang}/contact`}
+              to="/$lang/contact"
+              params={{ lang: lang as "en" | "pt" }}
               className="inline-flex h-14 items-center justify-center rounded-md border-2 border-white bg-transparent px-8 text-base font-semibold text-white shadow-sm transition-colors hover:bg-white/10"
             >
               {t.partnerWithUs}
@@ -213,7 +215,8 @@ function Home() {
                 : "We ensure the full leadership of young people, adolescents, and survivors in decision-making structures, shaping the direction of the pan-African movement."}
             </p>
             <Link
-              to={`/${lang}/about`}
+              to="/$lang/about"
+              params={{ lang: lang as "en" | "pt" }}
               className="inline-flex w-fit items-center text-accent font-semibold hover:text-white transition-colors text-lg"
             >
               {isPt ? "Ler mais sobre a nossa abordagem" : "Read more about our approach"}

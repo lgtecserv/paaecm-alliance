@@ -17,6 +17,7 @@ export function Header() {
     { label: t.nav.home, to: `/${lang}` },
     { label: t.nav.about, to: `/${lang}/about` },
     { label: t.nav.visionMission, to: `/${lang}/vision-mission` },
+    { label: t.nav.advocacy, to: `/${lang}/advocacy` },
     { label: t.nav.contact, to: `/${lang}/contact` },
   ];
 
@@ -25,7 +26,7 @@ export function Header() {
       <div className="container flex h-20 max-w-screen-2xl items-center justify-between px-4">
         {/* Logo / Brand */}
         <div className="flex items-center gap-2">
-          <Link to={`/${lang}`} className="flex items-center space-x-2">
+          <Link to={`/${lang}` as any} className="flex items-center space-x-2">
             <img src="/Logo_da_PAAECM.png" alt="PAAECM Logo" className="h-24 w-auto" />
           </Link>
         </div>
@@ -35,7 +36,7 @@ export function Header() {
           {navLinks.map((link) => (
             <Link
               key={link.to}
-              to={link.to}
+              to={link.to as any}
               className="transition-colors hover:text-primary [&.active]:text-primary"
             >
               {link.label}
@@ -75,7 +76,7 @@ export function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.to}
-                to={link.to}
+                to={link.to as any}
                 className="text-base font-medium transition-colors hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >

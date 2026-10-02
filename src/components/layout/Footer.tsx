@@ -54,8 +54,10 @@ export function Footer() {
           
           {/* Brand Column (takes up 4 cols) */}
           <div className="lg:col-span-4 flex flex-col space-y-6">
-            <Link to={`/${lang}`} className="flex items-center">
-              <img src="/Logo_da_PAAECM.png" alt="PAAECM Logo" className="h-28 w-auto brightness-[200%] contrast-[120%] drop-shadow-lg" />
+            <Link to={`/${lang}` as any} className="flex items-center">
+              <div className="bg-white/95 p-3 rounded-2xl shadow-lg hover:bg-white transition-colors duration-300">
+                <img src="/Logo_da_PAAECM.png" alt="PAAECM Logo" className="h-28 w-auto" />
+              </div>
             </Link>
             <p className="text-base leading-relaxed text-zinc-400 font-medium">
               {t.org.name}
@@ -86,7 +88,7 @@ export function Footer() {
               {footerLinks.map((link) => (
                 <li key={link.to}>
                   <Link
-                    to={link.to}
+                    to={link.to as any}
                     className="group flex items-center text-zinc-400 hover:text-green-400 transition-colors font-medium"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-green-500 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -104,9 +106,9 @@ export function Footer() {
               <li className="flex items-start">
                 <MapPin className="h-6 w-6 text-green-500 mr-4 shrink-0 mt-0.5" />
                 <span className="text-zinc-400 leading-relaxed font-medium">
-                  {isPt ? "Sede" : "Headquarters"}<br />
-                  Maputo, Moçambique<br />
-                  {isPt ? "África" : "Africa"}
+                  <strong>PAAECM - Madzimawe Foundation</strong><br />
+                  23 Zambezi Drive, Leopards Hill Green Housing Complex, Woodlands<br />
+                  Postnet #486 P/Bag E891, Lusaka 10101 Zambia
                 </span>
               </li>
               <li className="flex items-center">
@@ -114,8 +116,11 @@ export function Footer() {
                 <span className="text-zinc-400 font-medium hover:text-white transition-colors cursor-pointer">info@paaecm.org</span>
               </li>
               <li className="flex items-center">
-                <Phone className="h-6 w-6 text-green-500 mr-4 shrink-0" />
-                <span className="text-zinc-400 font-medium hover:text-white transition-colors cursor-pointer">+258 84 000 0000</span>
+                <Phone className="h-6 w-6 text-green-500 mr-4 shrink-0 mt-0.5" />
+                <span className="text-zinc-400 font-medium flex flex-col space-y-1">
+                  <span className="hover:text-white transition-colors cursor-pointer">+260 977-763572</span>
+                  <span className="hover:text-white transition-colors cursor-pointer">+260 966-763572</span>
+                </span>
               </li>
             </ul>
           </div>

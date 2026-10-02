@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
+import { Route as LangAdvocacyRouteImport } from './routes/$lang/advocacy'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangLeadershipRouteImport } from './routes/$lang/leadership'
 import { Route as LangNewsRouteImport } from './routes/$lang/news'
@@ -39,6 +40,11 @@ const LangIndexRoute = LangIndexRouteImport.update({
 const LangAboutRoute = LangAboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangAdvocacyRoute = LangAdvocacyRouteImport.update({
+  id: '/advocacy',
+  path: '/advocacy',
   getParentRoute: () => LangRouteRoute,
 } as any)
 const LangContactRoute = LangContactRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/advocacy': typeof LangAdvocacyRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/leadership': typeof LangLeadershipRoute
   '/$lang/news': typeof LangNewsRoute
@@ -93,6 +100,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/advocacy': typeof LangAdvocacyRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/leadership': typeof LangLeadershipRoute
   '/$lang/news': typeof LangNewsRoute
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/about': typeof LangAboutRoute
+  '/$lang/advocacy': typeof LangAdvocacyRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/leadership': typeof LangLeadershipRoute
   '/$lang/news': typeof LangNewsRoute
@@ -122,6 +131,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/about'
+    | '/$lang/advocacy'
     | '/$lang/contact'
     | '/$lang/leadership'
     | '/$lang/news'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$lang/about'
+    | '/$lang/advocacy'
     | '/$lang/contact'
     | '/$lang/leadership'
     | '/$lang/news'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/about'
+    | '/$lang/advocacy'
     | '/$lang/contact'
     | '/$lang/leadership'
     | '/$lang/news'
@@ -190,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/$lang/about'
       preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/advocacy': {
+      id: '/$lang/advocacy'
+      path: '/advocacy'
+      fullPath: '/$lang/advocacy'
+      preLoaderRoute: typeof LangAdvocacyRouteImport
       parentRoute: typeof LangRouteRoute
     }
     '/$lang/contact': {
@@ -246,6 +265,7 @@ declare module '@tanstack/react-router' {
 
 interface LangRouteRouteChildren {
   LangAboutRoute: typeof LangAboutRoute
+  LangAdvocacyRoute: typeof LangAdvocacyRoute
   LangContactRoute: typeof LangContactRoute
   LangLeadershipRoute: typeof LangLeadershipRoute
   LangNewsRoute: typeof LangNewsRoute
@@ -258,6 +278,7 @@ interface LangRouteRouteChildren {
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangAboutRoute: LangAboutRoute,
+  LangAdvocacyRoute: LangAdvocacyRoute,
   LangContactRoute: LangContactRoute,
   LangLeadershipRoute: LangLeadershipRoute,
   LangNewsRoute: LangNewsRoute,

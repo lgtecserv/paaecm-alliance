@@ -7,7 +7,7 @@ export const Route = createFileRoute("/$lang/vision-mission")({
 });
 
 function VisionMission() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -24,7 +24,7 @@ function VisionMission() {
               <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <Eye className="h-8 w-8 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold mb-4">{t.lang === "pt" ? "Visão" : "Vision"}</h2>
+              <h2 className="text-2xl font-bold mb-4">{lang === "pt" ? "Visão" : "Vision"}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 {t.org.vision}
               </p>
@@ -34,7 +34,7 @@ function VisionMission() {
               <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="h-8 w-8 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold mb-4">{t.lang === "pt" ? "Missão" : "Mission"}</h2>
+              <h2 className="text-2xl font-bold mb-4">{lang === "pt" ? "Missão" : "Mission"}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 {t.org.mission}
               </p>
@@ -44,7 +44,7 @@ function VisionMission() {
               <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <Flag className="h-8 w-8 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold mb-4">{t.lang === "pt" ? "Objectivo" : "Goal"}</h2>
+              <h2 className="text-2xl font-bold mb-4">{lang === "pt" ? "Objectivo" : "Goal"}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 {t.org.goal}
               </p>

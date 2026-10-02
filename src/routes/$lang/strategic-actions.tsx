@@ -7,7 +7,7 @@ export const Route = createFileRoute("/$lang/strategic-actions")({
 });
 
 function StrategicActions() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -15,7 +15,7 @@ function StrategicActions() {
         <div className="container max-w-screen-xl px-4 mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              {t.lang === "pt" ? "Acções Estratégicas" : "Strategic Actions"}
+              {lang === "pt" ? "Acções Estratégicas" : "Strategic Actions"}
             </h1>
           </div>
 

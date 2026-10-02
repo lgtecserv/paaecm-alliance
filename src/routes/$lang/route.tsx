@@ -2,12 +2,13 @@ import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
 import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
 import { SeoMeta } from '../../components/SeoMeta';
+import { ImageCarousel } from '../../components/ui/ImageCarousel';
 import { useEffect } from 'react';
 
 export const Route = createFileRoute('/$lang')({
   beforeLoad: ({ params: { lang } }) => {
     if (lang !== 'en' && lang !== 'pt') {
-      throw redirect({ to: '/en', replace: true });
+      throw redirect({ to: '/$lang', params: { lang: 'en' }, replace: true });
     }
   },
   component: LangLayout,
@@ -27,6 +28,7 @@ function LangLayout() {
     <div className="flex min-h-screen flex-col bg-background text-foreground antialiased font-sans">
       <SeoMeta />
       <Header />
+      <ImageCarousel />
       <main className="flex-1">
         <Outlet />
       </main>
