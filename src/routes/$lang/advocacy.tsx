@@ -43,6 +43,7 @@ const pageContent = {
     campaignSubtitle: "Translating the SADC Model Law into grassroots accountability.",
     campaignText1: "Our youth advocates are driving change by identifying legislative gaps in the SADC Model Law on Eradicating Child Marriage. We utilize digital storytelling and rapid-response messaging to bypass traditional media gatekeepers.",
     campaignText2: "Join the movement and use our digital campaign hashtags to hold duty-bearers accountable and amplify the voices of girls and survivors.",
+    joinMovement: "#JoinTheMovement",
     hashtags: ["#MyBodyIsMine", "#LetHerBeChild", "#HerBodyHerChoice", "#SchoolIsCool", "#BooksNotRings", "#MwanaNiMwana"],
     resourcesTitle: "Resources & Reports",
     resourcesSubtitle: "Download our latest assessments and workshop reports.",
@@ -98,7 +99,8 @@ const pageContent = {
     campaignSubtitle: "Traduzindo a Lei Modelo da SADC em responsabilização ao nível da base comunitária.",
     campaignText1: "Os nossos jovens activistas estão a impulsionar a mudança identificando lacunas legislativas na Lei Modelo da SADC sobre a Erradicação do Casamento Infantil. Utilizamos a narração de histórias digitais e mensagens de resposta rápida para contornar as barreiras da mídia tradicional.",
     campaignText2: "Junte-se ao movimento e use as hashtags da nossa campanha digital para exigir responsabilização aos decisores e amplificar as vozes das raparigas e sobreviventes.",
-    hashtags: ["#MyBodyIsMine", "#LetHerBeChild", "#HerBodyHerChoice", "#SchoolIsCool", "#BooksNotRings", "#MwanaNiMwana"],
+    joinMovement: "#JunteSeAoMovimento",
+    hashtags: ["#MeuCorpoÉMeu", "#DeixemNaSerCriança", "#SeuCorpoSuaEscolha", "#EscolaÉLegal", "#LivrosNãoAlianças", "#CriançaÉCriança"],
     resourcesTitle: "Recursos e Relatórios",
     resourcesSubtitle: "Faça o download das nossas avaliações e relatórios de workshops mais recentes.",
     download: "Baixar PDF",
@@ -178,11 +180,12 @@ function Advocacy() {
                 {t.campaignText2}
               </p>
             </div>
-            <div className="bg-background/10 backdrop-blur-sm rounded-2xl p-8 border border-primary-foreground/20 shadow-lg">
-              <h4 className="text-2xl font-semibold mb-6">#JoinTheMovement</h4>
-              <div className="flex flex-wrap gap-3">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl relative overflow-hidden">
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+              <h4 className="text-3xl font-bold mb-8 text-white">{t.joinMovement}</h4>
+              <div className="flex flex-wrap gap-4 relative z-10">
                 {t.hashtags.map((tag) => (
-                  <span key={tag} className="px-4 py-2 bg-background/20 rounded-full font-medium text-primary-foreground border border-primary-foreground/30 hover:bg-background/30 transition-colors cursor-default">
+                  <span key={tag} className="px-5 py-3 bg-white text-primary rounded-full font-bold shadow-md hover:scale-105 hover:shadow-lg hover:bg-zinc-50 transition-all cursor-default">
                     {tag}
                   </span>
                 ))}
